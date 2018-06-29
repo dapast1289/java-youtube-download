@@ -8,7 +8,7 @@
 <body>
 
 <form id="urlForm">
-	Youtube URL: <input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=FXd9zdieWTM" style="width: 600px" required autofocus>
+	<p>Youtube URL:</p><input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=FXd9zdieWTM" style="width: 600px" required autofocus>
 	<input type="button" value="Submit" onclick="parserUrl()">
 </form>
 
@@ -21,11 +21,10 @@ function parserUrl(){
 		url: "/youtu/parserUrl",
 		dataType: 'JSON',
 		data: $("#urlForm").serialize(),
-		success: function (backmsg) {
-			alert("rerere: " + backmsg.toString());
-			if (backmsg.success) {
+		success: function (msg) {
+			if (msg.success) {
+			alert("msg: " + msg.datas);
 			} else {
-					//alert(backmsg.errorMsg);
 			}
 		},
 	});

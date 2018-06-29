@@ -1,6 +1,8 @@
 package com.javayoutubedownload.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,12 +15,15 @@ import com.javayoutubedownload.bean.YoutubeUrl;
 public class ParserController {
 	
 	@RequestMapping(value = "parserUrl", method = RequestMethod.GET)
-    public ArrayList<YoutubeUrl> parser(String url) {
-		ArrayList<YoutubeUrl> res = new ArrayList<YoutubeUrl>();
+    public Map<String, Object> parser(String url) {
+		Map<String, Object> res = new HashMap<String, Object>();
+		ArrayList<YoutubeUrl> list = new ArrayList<YoutubeUrl>();
 		YoutubeUrl a = new YoutubeUrl();
 		a.setName("4800P");
 		a.setUrl(url);
-		res.add(a);
+		list.add(a);
+		res.put("success", true);
+		res.put("datas", list);
         return res;
     }
 	
