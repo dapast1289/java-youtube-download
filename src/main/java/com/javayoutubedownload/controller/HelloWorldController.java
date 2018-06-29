@@ -13,7 +13,7 @@ public class HelloWorldController {
 	
     @RequestMapping("/")
     public String index() {
-        return "Hello World";
+        return "Hello World and heroku";
     }
     
     @RequestMapping("/getUser")
