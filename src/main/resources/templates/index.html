@@ -8,23 +8,32 @@
 <body>
 
 <form id="urlForm">
-	<p>Youtube URL:</p><input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=FXd9zdieWTM" style="width: 600px" required autofocus>
+	<p>Youtube URL:</p>
+	<input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=FXd9zdieWTM" style="width: 600px" required autofocus>
 	<input type="button" value="Submit" onclick="parserUrl()">
 </form>
+
+<div id="result">
+</div>
 
 
 <script>
 function parserUrl(){
 	//console.log($("#urlForm").serialize());
 	$.ajax({
-		type: "GET",
-		url: "/youtu/parserUrl",
+		type: 'GET',
+		url: '/youtu/parserUrl',
 		dataType: 'JSON',
-		data: $("#urlForm").serialize(),
+		data: $('#urlForm').serialize(),
 		success: function (msg) {
 			if (msg.success) {
-			alert("msg: " + msg.datas);
+				var res = '';
+				for (var i = 0; i < msg.datas.length; i++) {
+					res += '<br><a href="' + msg.datas[i].url + '">' + msg.datas[i].name + '</a>\n';
+				}
+				$("#result").replaceWith(res);
 			} else {
+				alert("失敗");
 			}
 		},
 	});

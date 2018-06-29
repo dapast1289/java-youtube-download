@@ -19,8 +19,12 @@ public class ParserController {
 		Map<String, Object> res = new HashMap<String, Object>();
 		ArrayList<YoutubeUrl> list = new ArrayList<YoutubeUrl>();
 		YoutubeUrl a = new YoutubeUrl();
-		a.setName("4800P");
+		a.setName("480P");
 		a.setUrl(url);
+		list.add(a);
+		a = new YoutubeUrl();
+		a.setUrl(url);
+		a.setName("720P");
 		list.add(a);
 		res.put("success", true);
 		res.put("datas", list);
