@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>My first Page by thymeleaf</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<form id="urlForm">
+	Youtube URL: <input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=FXd9zdieWTM" style="width: 600px" required autofocus>
+	<input type="button" value="Submit" onclick="parserUrl()">
+</form>
+
+
+<script>
+function parserUrl(){
+	//console.log($("#urlForm").serialize());
+	$.ajax({
+		type: "GET",
+		url: "/youtu/parserUrl",
+		dataType: 'JSON',
+		data: $("#urlForm").serialize(),
+		success: function (backmsg) {
+			alert("rerere: " + backmsg.toString());
+			if (backmsg.success) {
+			} else {
+					//alert(backmsg.errorMsg);
+			}
+		},
+	});
+}
+</script>
+
+</body>
+</html>

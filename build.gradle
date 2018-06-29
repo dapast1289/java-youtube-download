@@ -28,8 +28,9 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('com.github.axet:wget:1.2.21')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	//compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	//runtime('org.springframework.boot:spring-boot-devtools')
-	compile('com.github.axet:wget:1.2.21')
+	runtime('org.springframework.boot:spring-boot-devtools')
 }
