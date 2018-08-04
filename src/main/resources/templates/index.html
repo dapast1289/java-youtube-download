@@ -26,10 +26,11 @@ function parserUrl(){
 		data: $('#urlForm').serialize(),
 		success: function (msg) {
 			if (msg.success) {
-				var res = '';
+				var res = '<div id="result">';
 				for (var i = 0; i < msg.datas.length; i++) {
 					res += '<br><a href="' + msg.datas[i].url + '">' + msg.datas[i].stream.c + ' ' + msg.datas[i].stream.video + ' ' + msg.datas[i].stream.vq + '</a>\n';
 				}
+				res += '</div>';
 				$("#result").replaceWith(res);
 			} else {
 				alert("失敗");
