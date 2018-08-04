@@ -9,7 +9,7 @@
 
 <form id="urlForm">
 	<p>Youtube URL:</p>
-	<input type="url" id="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=fcTK3JztQm4" style="width: 600px" required autofocus>
+	<input type="url" name="url" class="form-control" placeholder="輸入Youtube網址" value="https://www.youtube.com/watch?v=fcTK3JztQm4" style="width: 600px" required autofocus>
 	<input type="button" value="Submit" onclick="parserUrl()">
 </form>
 
@@ -19,7 +19,6 @@
 
 <script>
 function parserUrl(){
-	//console.log($("#urlForm").serialize());
 	$.ajax({
 		type: 'GET',
 		url: '/youtu/parserUrl',
